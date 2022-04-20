@@ -1,7 +1,37 @@
-html, body {
-  margin: 0;
-  padding: 0;
+{
+  box-sizing: border-box;
 }
-canvas {
-  display: block;
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background-image: url("white.jpg");
+  background-repeat: repeat-x;
+  border: 3px solid black;
+}
+
+.header {
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.column {
+  float: right;
+  padding: 10px;
+  height: 380px;
+  text-align: center;
+  font-size: 40px;
+  background-image: url("hearts.gif");
+  background-repeat: repeat-x;'  
+}
+
+/* Middle column */
+.column.middle {
+  width: 77%;
+}
+
+#tata1 {
+  width: 100px;
+  float: center;
+  padding: 10px;
 }
