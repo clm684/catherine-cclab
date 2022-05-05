@@ -1,4 +1,4 @@
-window.onscroll = function() {myFunction()};
+//window.onscroll = function() {myFunction()};
 
 //arrays
 let colorNames1 = [
@@ -31,7 +31,7 @@ function setup() {
   let myCanvas = createCanvas(700, 400);
     myCanvas.parent('#p5Canvas');
   let elements = document.getElementsByClassName('container');
-  // elements[0].appendChild( myCanvas.elt );
+   elements[0].appendChild( myCanvas.elt );
 
   background(220);
 };
