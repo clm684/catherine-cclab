@@ -1,5 +1,6 @@
-html,body {
+body {
   background-image: url("assets/cute.gif");
+  margin: 0px;
   height: 100%;
 }
 
@@ -11,12 +12,13 @@ html,body {
 
 .header {
   padding: 10px 16px;
-  background: gray;
+  background: rgba(255, 220, 125, 0.868);
   color: white;
   text-align: center;
   font-size: 50px;
   position: fixed;
   top: 0;
+  /* left: 0px; */
   width: 100%
 }
 
@@ -48,8 +50,37 @@ button:hover {
 .question p {
   padding-right: 30px;
   margin-top: 200px;
+  text-align: center;
+}
+
+.question1 p {
+  padding-right: 30px;
+  margin-top: 250px;
+  text-align: center;
+}
+
+.swatches {
+  text-align: center;
+}
+
+.mountains {
+  text-align: center;
 }
 
 #defaultCanvas0 {
   padding-left: 25%;
 }
+
+.p5Canvas {
+  margin: auto;
+}
+
+
+/* .buttonLink{
+  background-color: grey;
+  color: green;
+  padding: 3px 5px 6px 3px;
+}
+.buttonLink:hover{
+  background-color: lightgray;
+} */
