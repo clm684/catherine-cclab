@@ -47,15 +47,27 @@ button:hover {
   cursor: pointer;
 }
 
-.question p {
+.question1 p {
   padding-right: 30px;
   margin-top: 200px;
   text-align: center;
 }
 
-.question1 p {
+.question2 p {
   padding-right: 30px;
-  margin-top: 250px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.question3 p {
+  padding-right: 30px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.question4 p {
+  padding-right: 30px;
+  margin-top: 100px;
   text-align: center;
 }
 
@@ -64,6 +76,14 @@ button:hover {
 }
 
 .mountains {
+  text-align: center;
+}
+
+.clouds {
+  text-align: center;
+}
+
+.hills {
   text-align: center;
 }
 
@@ -76,12 +96,12 @@ button:hover {
 } */
 
 
-
-/* .buttonLink{
+.buttonLink{
   background-color: grey;
   color: green;
   padding: 3px 5px 6px 3px;
 }
+
 .buttonLink:hover{
   background-color: lightgray;
-} */
+}

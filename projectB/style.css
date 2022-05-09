@@ -1,0 +1,101 @@
+body {
+  background-image: url("assets/cute.gif");
+  margin: 0px;
+  height: 100%;
+}
+
+#whiteBack {
+  background-color: white;
+  height: 2000px;
+  width: 700px;
+  justify-content: top;
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  padding: 10px 16px;
+  background: rgba(255, 220, 125, 0.868);
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  position:sticky;
+  top: 0;
+  width: 100%;
+}
+
+
+#container {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+label {
+  background-color: #edad6c;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  /* margin-bottom: 10px; */
+  width: 106px;
+}
+
+input{
+  appearance: none;
+}
+
+input:checked+label {
+  background-color: #cb8b4c;
+}
+
+#feelingsWrapper1{
+  justify-content: center;
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.feelings{
+  margin-bottom: 20px;
+}
+
+.question1 {
+  font-size: 20px;
+}
+.feelings{
+  font-size: 20px;
+}
+.seasons{
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #000080;
+  cursor: pointer;
+}
+
+
+#defaultCanvas0 {
+  padding-left: 25%;
+}
+
+/* .p5Canvas {
+  margin: auto;
+} */
+
+
+.buttonLink{
+  background-color: grey;
+  color: green;
+  padding: 3px 5px 6px 3px;
+}
+
+.buttonLink:hover{
+  background-color: lightgray;
+}
