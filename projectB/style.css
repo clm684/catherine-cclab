@@ -22,6 +22,7 @@ body {
   position:sticky;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 
@@ -85,9 +86,13 @@ button:hover {
   padding-left: 25%;
 }
 
-/* .p5Canvas {
-  margin: auto;
-} */
+.p5Canvas {
+  position: absolute;
+  top: 800px;
+  left: 200px;
+  z-index: 0;
+  /* margin: auto; */
+}
 
 
 .buttonLink{

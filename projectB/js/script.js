@@ -20,10 +20,13 @@ colorNames4 = [
 //clouds
 var cloudx;
 var cloudy;
-var canRandomCloud = true;
+var canCloudMove = false;
+var canCloudShow = false;
+var clouds = []; 
 
-cloudx = 100;
-cloudy = 100;
+
+var canMountainShow1 = false;
+var canMountainShow2 = false;
 
 var backgroundColor;
 //p5 setup
@@ -38,21 +41,34 @@ function setup() {
 };
 
 
+
+
 function draw() {
   background(backgroundColor);
-  if (canRandomCloud == false) {
-  cloudx += 1;
-  // cloudy += 1;
-
-  for (let i = 0; i < 4; i++) {
-    fill(250);
-    noStroke();
-    ellipse(cloudx, cloudy, 70, 50);
-    ellipse(cloudx + 10, cloudy + 10, 70, 50);
-    ellipse(cloudx - 20, cloudy + 10, 70, 50);
+  if (canCloudMove == true) {
+    for (let i = 0; i < clouds.length; i ++){
+      clouds[i].update();
+    }
   }
-  console.log("debug");
-}
+  if(canCloudShow == true){
+    for (let i = 0; i < clouds.length; i ++){
+      clouds[i].show();
+    }
+  }
+
+  if(canMountainShow1 == true){
+    mountain1();
+  }
+  else if(canMountainShow2 == true){
+    mountain2();
+  }
+  else if(canMountainShow3 == true){
+    mountain3();
+  }
+  else if(canMountainShow4 == true){
+    mountain4();
+  }
+
  };
 
 //onclick functions
@@ -95,6 +111,29 @@ function changeColor4() {
     fill(colorNames4[i]);
     rect(x, y, 700, 400);
   }
+}
+
+function showMountain1(){
+  canMountainShow1 = true;
+  canMountainShow2 = false;
+}
+
+function showMountain2(){
+  canMountainShow1 = false;
+  canMountainShow2 = true;
+}
+
+function showMountain3(){
+  canMountainShow1 = false;
+  canMountainShow2 = false;
+  canMountainShow3 = true;
+}
+
+function showMountain4(){
+  canMountainShow1 = false;
+  canMountainShow2 = false;
+  canMountainShow3 = false;
+  canMountainShow4 = true;
 }
 
 function mountain1() {
@@ -231,17 +270,13 @@ function mountain4() {
 }
 
 function clouds1() {
+  canCloudShow = true;
+  canCloudMove = false;
   let cloudNum = random(1, 10);
   for (let j = 0; j < cloudNum; j++) {
     cloudx = random(1, 700);
     cloudy = random(1, 100);
-    for (let i = 0; i < 4; i++) {
-      fill(250)
-      noStroke();
-      ellipse(cloudx, cloudy, 70, 50);
-      ellipse(cloudx + 10, cloudy + 10, 70, 50);
-      ellipse(cloudx - 20, cloudy + 10, 70, 50);
-    }
+    clouds.push(new Cloud(cloudx, cloudy));
   }
 }
 
@@ -280,23 +315,34 @@ function action2() {
 
 //moving clouds
 function action3() {
-  canRandomCloud = true;
-  let cloudNum = random(1, 10);
-  if (canRandomCloud) {
-    canRandomCloud = false
-    for (let j = 0; j < cloudNum; j++) {
-      cloudx = random(1, 700);
-      cloudy = random(1, 100);
+  canCloudMove = true;
+  canCloudShow = true;
+}
+
+
+class Cloud{
+  constructor(x, y){
+    this.cloudX = x;
+    this.cloudY = y;
+    this.xVel = 1;
+  }
+
+  show(){
+    for (let i = 0; i < 4; i++) {
+      fill(250);
+      noStroke();
+      ellipse(this.cloudX, this.cloudY, 70, 50);
+      ellipse(this.cloudX + 10, this.cloudY + 10, 70, 50);
+      ellipse(this.cloudX - 20, this.cloudY + 10, 70, 50);
     }
   }
-      // for (let i = 0; i < 4; i++) {
-      //   fill(250);
-      //   noStroke();
-      //   ellipse(cloudx, cloudy, 70, 50);
-      //   ellipse(cloudx + 10, cloudy + 10, 70, 50);
-      //   ellipse(cloudx - 20, cloudy + 10, 70, 50);
-      // }
-      // console.log("debug");
+  update(){
+    if(this.cloudX > 700){
+      this.cloudX = 0
+    }
+    this.cloudX += this.xVel;
+  }
+
 }
 
 //rain
