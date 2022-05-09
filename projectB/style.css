@@ -46,6 +46,29 @@ label {
   width: 106px;
 }
 
+.box {
+  display: flex;
+  align-content: inherit;
+  overflow: auto;
+  flex-wrap: wrap;
+}
+
+.box > div {
+  padding: 100px;
+  font-size: 30px;
+}
+
+.content {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.content div{
+  font-size: 25px;
+  text-align: center;
+
+}
+
 input{
   appearance: none;
 }
@@ -54,11 +77,23 @@ input:checked+label {
   background-color: #cb8b4c;
 }
 
-#feelingsWrapper1{
+#feelingsWrapper{
   justify-content: center;
   width: 250px;
   display: flex;
   flex-wrap: wrap;
+}
+
+#seasonsWrapper{
+
+}
+
+#funWrapper{
+
+}
+
+#placesWrapper{
+
 }
 
 .feelings{
