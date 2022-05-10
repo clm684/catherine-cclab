@@ -4,8 +4,7 @@ var colorNames2;
 var colorNames3;
 var colorNames4;
 
-colorNames1 = [
-  "#99FFFF", //cyan
+colorNames1 = ["#A7C7E7", //pastel blue
 ];
 colorNames2 = [
   "#FFA07A", //lightsalmon
@@ -22,11 +21,11 @@ var cloudx;
 var cloudy;
 var canCloudMove = false;
 var canCloudShow = false;
-var clouds = []; 
+var clouds = [];
 
 
-var canMountainShow1 = false;
-var canMountainShow2 = false;
+var canMoutainShow1 = false;
+var canMoutainShow2 = false;
 
 var backgroundColor;
 //p5 setup
@@ -41,39 +40,36 @@ function setup() {
 };
 
 
-
-
 function draw() {
   background(backgroundColor);
   if (canCloudMove == true) {
-    for (let i = 0; i < clouds.length; i ++){
+    for (let i = 0; i < clouds.length; i++) {
       clouds[i].update();
     }
   }
-  if(canCloudShow == true){
-    for (let i = 0; i < clouds.length; i ++){
+  if (canCloudShow == true) {
+    for (let i = 0; i < clouds.length; i++) {
       clouds[i].show();
     }
   }
 
-  if(canMountainShow1 == true){
+  if (canMoutainShow1 == true) {
     mountain1();
   }
-  else if(canMountainShow2 == true){
+  else if (canMoutainShow2 == true) {
     mountain2();
   }
-  else if(canMountainShow3 == true){
-    mountain3();
-  }
-  else if(canMountainShow4 == true){
-    mountain4();
-  }
+  //   if(canMoutainShow3 == true){
+  //     mountain1();
+  //   }
+  //   else if(canMoutainShow4 == true){
+  //     mountain2();
+  //   }
+};
 
- };
-
-//onclick functions
+//onchange functions
 function changeColor1() {
-  backgroundColor = color("#99FFFF");
+  backgroundColor = color("#A7C7E7");
   for (let i = 0; i < colorNames1.length; i++) {
     let x = 0;
     let y = i * 100;
@@ -113,28 +109,25 @@ function changeColor4() {
   }
 }
 
-function showMountain1(){
-  canMountainShow1 = true;
-  canMountainShow2 = false;
+function showMountain1() {
+  canMoutainShow1 = true;
+  canMoutainShow2 = false;
 }
 
-function showMountain2(){
-  canMountainShow1 = false;
-  canMountainShow2 = true;
+function showMountain2() {
+  canMoutainShow1 = false;
+  canMoutainShow2 = true;
 }
 
-function showMountain3(){
-  canMountainShow1 = false;
-  canMountainShow2 = false;
-  canMountainShow3 = true;
-}
+// function showMountain3(){
+//   canMoutainShow3 = true;
+//   canMoutainShow4 = false;
+// }
 
-function showMountain4(){
-  canMountainShow1 = false;
-  canMountainShow2 = false;
-  canMountainShow3 = false;
-  canMountainShow4 = true;
-}
+// function showMountain4(){
+//   canMoutainShow3 = false;
+//   canMoutainShow4 = true;
+// }
 
 function mountain1() {
   //further mountain
@@ -320,14 +313,14 @@ function action3() {
 }
 
 
-class Cloud{
-  constructor(x, y){
+class Cloud {
+  constructor(x, y) {
     this.cloudX = x;
     this.cloudY = y;
     this.xVel = 1;
   }
 
-  show(){
+  show() {
     for (let i = 0; i < 4; i++) {
       fill(250);
       noStroke();
@@ -336,8 +329,8 @@ class Cloud{
       ellipse(this.cloudX - 20, this.cloudY + 10, 70, 50);
     }
   }
-  update(){
-    if(this.cloudX > 700){
+  update() {
+    if (this.cloudX > 700) {
       this.cloudX = 0
     }
     this.cloudX += this.xVel;
@@ -347,5 +340,15 @@ class Cloud{
 
 //rain
 function action4() {
-
+  let rainNum = random(40, 200);
+  for (let j = 0; j < rainNum; j++) {
+    rainX = random(1, 700);
+    rainY = random(1, 400);
+    for (let i = 0; i < 4; i++) {
+      fill(0, 71, 171);
+      noStroke();
+      ellipse(rainX, rainY, 4, 4);
+    }
+  }
 }
+

@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
   <title>Title</title>
   <link rel="stylesheet" href="style.css">
   <script src="js/lib/p5.js" type="text/javascript"></script>
@@ -17,21 +20,23 @@
   <div id="container">
     <form id="whiteBack">
 
-      <div class="box">
-      <div class="content">
+
+      <!-- <div class="box"> -->
+      <div class="question1">
         <p>How are you feeling?</p>
       </div>
       <div class="feelings">
-
-        <div class="content">
-          <div> <input id="bored" onchange="changeColor1()" type="radio" name="feelings" value="bored">
+        <div id="feelingsWrapper">
+          <div>
+            <input id="bored" onchange="changeColor1()" type="radio" name="feelings" value="bored">
             <label id="bored-label" for="bored">
               Bored
             </label>
           </div>
 
 
-          <div> <input id="excited" onchange="changeColor2()" type="radio" name="feelings" value="excited">
+          <div>
+            <input id="excited" onchange="changeColor2()" type="radio" name="feelings" value="excited">
             <label id="excited-label" for="excited">
               Excited
             </label>
@@ -39,13 +44,15 @@
 
 
 
-          <div> <input id="calm" onchange="changeColor3()" type="radio" name="feelings" value="calm">
+          <div>
+            <input id="calm" onchange="changeColor3()" type="radio" name="feelings" value="calm">
             <label id="calm-label" for="calm">
               Calm
             </label>
           </div>
 
-          <div> <input id="happy" onchange="changeColor4()" type="radio" name="feelings" value="happy">
+          <div>
+            <input id="happy" onchange="changeColor4()" type="radio" name="feelings" value="happy">
             <label id="happy-label" for="happy">
               Happy
             </label>
@@ -57,97 +64,111 @@
       <div class="question2">
         <p>What is your favorite season? </p>
       </div>
-
       <div class="seasons">
         <div id="seasonsWrapper">
-          <div> <input id="winter" onchange="showMountain1()" type="radio" name="seasons" value="winter" />
+          <div>
+            <input id="winter" onchange="showMountain1()" type="radio" name="seasons" value="winter" />
             <label id="winter-label" for="winter">
               Winter
             </label>
           </div>
 
-          <div><input id="spring" onchange="showMountain2()" type="radio" name="seasons" value="spring" />
-          <label id="spring-label" for="spring">
-            Spring
-          </label>
-        </div>
+          <div>
+            <input id="spring" onchange="showMountain2()" type="radio" name="seasons" value="spring" />
+            <label id="spring-label" for="spring">
+              Spring
+            </label>
+          </div>
 
-          <div><input id="summer" onchange="showMountain3()" type="radio" name="seasons" value="summer" />
-          <label id="summer-label" for="summer">
-            Summer
-          </label>
-        </div>
+          <div>
+            <input id="summer" onchange="mountain3()" type="radio" name="seasons" value="summer" />
+            <label id="summer-label" for="summer">
+              Summer
+            </label>
+          </div>
 
-          <div><input id="fall" onchange="showMountain4()" type="radio" name="seasons" value="fall">
-          <label id="fall-label" for="fall">
-            Fall
-          </label>
+          <div>
+            <input id="fall" onchange="mountain4()" type="radio" name="seasons" value="fall">
+            <label id="fall-label" for="fall">
+              Fall
+            </label>
+          </div>
         </div>
       </div>
 
-        <div class="question3">
-          <p>How do you like to spend a free day?</p>
-        </div>
-        <div class="fun">
-          <div id="funWrapper">
-          <div><input id="reading" onchange="clouds1()" type="radio" name="fun" value="reading" />
-          <label id="reading-label" for="reading">
-            Reading
-          </label>
-        </div>
+      <div class="question3">
+        <p>How do you like to spend a free day?</p>
+      </div>
+      <div class="fun">
+        <div id="funWrapper">
+          <div>
+            <input id="reading" onchange="clouds1()" type="radio" name="fun" value="reading" />
+            <label id="reading-label" for="reading">
+              Reading
+            </label>
+          </div>
 
-          <div><input id="gaming" onchange="clouds2()" type="radio" name="fun" value="gaming" />
-          <label id="gaming-label" for="gaming">
-            Gaming
-          </label>
-        </div>
+          <div>
+            <input id="gaming" onchange="clouds1()" type="radio" name="fun" value="gaming" />
+            <label id="gaming-label" for="gaming">
+              Gaming
+            </label>
+          </div>
 
-          <div><input id="eating" onchange="clouds3()" type="radio" name="fun" value="eating" />
-          <label id="eating-label" for="eating">
-            Baking
-          </label>
-        </div>
+          <div>
+            <input id="eating" onchange="clouds1()" type="radio" name="fun" value="eating" />
+            <label id="eating-label" for="eating">
+              Baking
+            </label>
+          </div>
 
-          <div><input id="sleeping" onchange="clouds4()" type="radio" name="fun" value="sleeping">
-          <label id="sleeping-label" for="sleeping">
-            Sleeping
-          </label>
+          <div>
+            <input id="sleeping" onchange="clouds1()" type="radio" name="fun" value="sleeping">
+            <label id="sleeping-label" for="sleeping">
+              Sleeping
+            </label>
+          </div>
         </div>
       </div>
 
-        <div class="question4">
-          <p>Which place do you want to travel to?</p>
-        </div>
-        <div class="places">
-          <div id="placesWrapper">
-          <div><input id="bali" onchange="action1()" type="radio" name="places" value="bali" />
-          <label id="bali-label" for="bali">
-            Bali
-          </label>
-        </div>
+      <div class="question4">
+        <p>Which place do you want to travel to?</p>
+      </div>
+      <div class="places">
+        <div id="placesWrapper">
+          <div>
+            <input id="bali" onchange="action1()" type="radio" name="places" value="bali" />
+            <label id="bali-label" for="bali">
+              Bali
+            </label>
+          </div>
 
-         <div> <input id="tokyo" onchange="action2()" type="radio" name="places" value="tokyo" />
-          <label id="tokyo-label" for="tokyo">
-            Tokyo
-          </label>
-        </div>
+          <div>
+            <input id="tokyo" onchange="action2()" type="radio" name="places" value="tokyo" />
+            <label id="tokyo-label" for="tokyo">
+              Tokyo
+            </label>
+          </div>
 
-          <div><input id="dubai" onchange="action3()" type="radio" name="places" value="dubai" />
-          <label id="dubai-label" for="dubai">
-            Dubai
-          </label>
-        </div>
+          <div>
+            <input id="dubai" onchange="action3()" type="radio" name="places" value="dubai" />
+            <label id="dubai-label" for="dubai">
+              Dubai
+            </label>
+          </div>
 
-          <div><input id="buenos" onchange="action4()" type="radio" name="places" value="buenos">
-          <label id="buenos-label" for="buenos">
-            Buenos Aires
-          </label>
+          <div>
+            <input id="buenos" onchange="action4()" type="radio" name="places" value="buenos">
+            <label id="buenos-label" for="buenos">
+              Havana
+            </label>
+          </div>
         </div>
       </div>
-    <!-- </div> box div end -->
-        <div>
-          <div id="p5Canvas" class="p5Canvas" />
-        </div>
+      <!-- </div> box div end -->
+      <div>
+        <div id="p5Canvas" class="p5Canvas" />
+      </div>
     </form>
 
   </div>
