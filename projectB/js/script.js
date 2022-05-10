@@ -4,7 +4,8 @@ var colorNames2;
 var colorNames3;
 var colorNames4;
 
-colorNames1 = ["#A7C7E7", //pastel blue
+colorNames1 = [
+  "#A7C7E7", //pastel blue
 ];
 colorNames2 = [
   "#FFA07A", //lightsalmon
@@ -26,12 +27,19 @@ var clouds = [];
 
 var canMoutainShow1 = false;
 var canMoutainShow2 = false;
+var canMoutainShow3 = false;
+var canMoutainShow4 = false;
+
+var canSnowShow = false;
+var canStarShow = false;
+var canRainShow = false;
 
 var backgroundColor;
 //p5 setup
 function setup() {
   let myCanvas = createCanvas(700, 400);
-  // myCanvas.parent('#p5Canvas');
+  myCanvas.parent('#p5Canvas');
+  document.getElementById("p5Canvas").classList.add("hidden");
   // let elements = document.getElementsById('container');
   //  elements[0].appendChild( myCanvas.elt );
 
@@ -59,12 +67,22 @@ function draw() {
   else if (canMoutainShow2 == true) {
     mountain2();
   }
-  //   if(canMoutainShow3 == true){
-  //     mountain1();
-  //   }
-  //   else if(canMoutainShow4 == true){
-  //     mountain2();
-  //   }
+  else if(canMoutainShow3 == true){
+      mountain3();
+    }
+  else if(canMoutainShow4 == true){
+      mountain4();
+    }
+
+  if (canSnowShow == true) {
+      action1();
+    }
+    else if (canStarShow == true){
+      action2();
+    }
+    else if (canRainShow == true){
+      action4();
+    }
 };
 
 //onchange functions
@@ -80,6 +98,7 @@ function changeColor1() {
 }
 
 function changeColor2() {
+  backgroundColor = color("#FFA07A");
   for (let i = 0; i < colorNames2.length; i++) {
     let x = 0;
     let y = i * 100;
@@ -90,6 +109,7 @@ function changeColor2() {
 }
 
 function changeColor3() {
+  backgroundColor = color("#E6E6FA");
   for (let i = 0; i < colorNames3.length; i++) {
     let x = 0;
     let y = i * 100;
@@ -100,6 +120,7 @@ function changeColor3() {
 }
 
 function changeColor4() {
+  backgroundColor = color("#FFC0CB");
   for (let i = 0; i < colorNames4.length; i++) {
     let x = 0;
     let y = i * 100;
@@ -119,15 +140,19 @@ function showMountain2() {
   canMoutainShow2 = true;
 }
 
-// function showMountain3(){
-//   canMoutainShow3 = true;
-//   canMoutainShow4 = false;
-// }
+function showMountain3(){
+  canMoutainShow1 = false;
+  canMoutainShow2 = false;
+  canMoutainShow3 = true;
+  canMoutainShow4 = false;
+}
 
-// function showMountain4(){
-//   canMoutainShow3 = false;
-//   canMoutainShow4 = true;
-// }
+function showMountain4(){
+  canMoutainShow1 = false;
+  canMoutainShow2 = false;
+  canMoutainShow3 = false;
+  canMoutainShow4 = true;
+}
 
 function mountain1() {
   //further mountain
@@ -260,6 +285,23 @@ function mountain4() {
   vertex(320, 217);
   vertex(225, 255);
   endShape(CLOSE);
+
+  //closer one
+  fill(174, 139, 2220);
+  strokeWeight(0);
+  triangle(100, 180, 500, 500, -260, 500);
+
+  fill(231, 241, 255);
+  strokeWeight(0);
+  beginShape();
+  vertex(100, 180);
+  vertex(225, 280);
+  vertex(145, 250);
+  vertex(120, 290);
+  vertex(70, 260);
+  vertex(-20, 286);
+  endShape(CLOSE);
+
 }
 
 function clouds1() {
@@ -273,9 +315,31 @@ function clouds1() {
   }
 }
 
-function clouds2() {
-
+function showSnow(){
+  canSnowShow = true;
+  canStarShow = false;
+  canRainShow = false;
+  canCloudShow = false;
+  canCloudMove = false;
 }
+
+function showStar(){
+  canSnowShow = false;
+  canStarShow = true;
+  canRainShow = false;
+  canCloudShow = false;
+  canCloudMove = false;
+}
+
+function showRain(){
+  canSnowShow = false;
+  canStarShow = false;
+  canRainShow = true;
+  canCloudShow = false;
+  canCloudMove = false;
+}
+
+
 
 //snow
 function action1() {
@@ -317,7 +381,7 @@ class Cloud {
   constructor(x, y) {
     this.cloudX = x;
     this.cloudY = y;
-    this.xVel = 1;
+    this.xVel = 0.5;
   }
 
   show() {
@@ -352,3 +416,7 @@ function action4() {
   }
 }
 
+function showP5 (){
+  let canvas = document.getElementById("p5Canvas");
+  canvas.classList.remove("hidden");
+}
